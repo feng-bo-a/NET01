@@ -1,0 +1,177 @@
+{% extends "base.html" %}
+
+{% block from %}
+<!--表单界面-->
+<div style="border:1px solid rgb(224, 222, 222);width:850px;height:273px;border-left: none;border-right: none;border-bottom:none;overflow-y: scroll;">
+    <div style="position:relative;padding:10px;">
+        <form action="http://127.0.0.1:5000/submit/mes" method="post" style="font-size:12px;">
+            <div style="float:left;">
+                <label for="vin-num" class="form-label"><b>VIN</b></label>
+                <input class="form-control" style="width:176px;" id="vin-num" name="vin-num" value="{{ vin_num }}"
+                       placeholder="请输入...">
+            </div>
+            <div class="mb-3" style="float:left;padding-left:35px;">
+                <label for="vsn-num" class="form-label"><b>物料编码</b></label>
+                <select class="form-select" style="width:176px;" id="vsn-num" name="vsn-num">
+                    <option value="1">S6660AACGAA2023</option>
+                    <option value="2">S7990AABEAA9527</option>
+                </select>
+            </div>
+            <!--# 固定值,暂不展示
+            <div style="float:left;padding-left:35px;">
+                <label for="certprinttime" class="form-label"><b>合格证打印时间</b></label>
+                <input class="form-control" style="width:176px;" id="certprinttime" name="certprinttime"
+                       value="{{ certprinttime }}" placeholder="请输入...">
+            </div>
+            -->
+            <div style="float:left;padding-left:35px;">
+                <label for="tbox-sn" class="form-label"><b>TBOX-SN</b></label>
+                <input class="form-control" style="width:176px;" id="tbox-sn" name="tbox-sn"
+                       value="{{ tbox_sn }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="iccid-num" class="form-label"><b>ICC-ID</b></label>
+                <input class="form-control" style="width:176px;" id="iccid-num" name="iccid-num"
+                       value="{{ iccid_num }}" placeholder="请输入...">
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <div style="float:left;padding-top:10px;">
+                <label for="imsi-num" class="form-label"><b>IMSI</b></label>
+                <input class="form-control" style="width:176px;" id="imsi-num" name="imsi-num"
+                       value="{{ imsi_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="sim-num" class="form-label"><b>SIM</b></label>
+                <input class="form-control" style="width:176px;" id="sim-num" name="sim-num"
+                       value="{{ sim_num }}" placeholder="请输入...">
+            </div>
+            <!--固定值，暂不展示
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="meid-num" class="form-label"><b>MEI-D</b></label>
+                <input class="form-control" style="width:176px;" id="meid-num" name="meid-num"
+                       value="{{ meid_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;padding-left:35px;">
+                <label for="hu-sn" class="form-label"><b>HU-SN</b></label>
+                <input class="form-control" style="width:176px;" id="hu-sn" name="hu-sn"
+                       value="{{ hu_sn }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;">
+                <label for="huhardversion" class="form-label"><b>HU硬件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="huhardversion" name="huhardversion"
+                       value="{{ huhardversion }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="huSoftVersion" class="form-label"><b>HU软件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="huSoftVersion" name="huSoftVersion"
+                       value="{{ huSoftVersion }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;padding-left:35px;">
+                <label for="tboxpartnumber" class="form-label"><b>TBOX零件号</b></label>
+                <input class="form-control" style="width:176px;" id="tboxpartnumber" name="tboxpartnumber"
+                       value="{{ tboxpartnumber }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="hupartnumber" class="form-label"><b>HU零件号</b></label>
+                <input class="form-control" style="width:176px;" id="hupartnumber" name="hupartnumber"
+                       value="{{ hupartnumber }}" placeholder="请输入...">
+            </div>
+            -->
+            <div class="mb-3" style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="handleflag" class="form-label"><b>处理标识 *</b></label>
+                <select class="form-select" style="width:176px;background-color:#99FF99;" id="handleflag"
+                        name="handleflag">
+                    <option style="width:176px;background-color:white;" value="0">新增</option>
+                    <option style="width:176px;background-color:white;" value="1">修改</option>
+                    <option style="width:176px;background-color:white;" value="2">强制修改</option>
+                </select>
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="adcs-sn" class="form-label"><b>ADCS-SN</b></label>
+                <input class="form-control" style="width:176px;" id="adcs-sn" name="adcs-sn"
+                       value="{{ adcs_sn }}" placeholder="请输入...">
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <!--固定值，暂不展示
+            <div style="float:left;padding-top:10px;">
+                <label for="adcshardwarever" class="form-label"><b>ADCS硬件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="adcshardwarever" name="adcshardwarever"
+                       value="{{ adcshardwarever }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;padding-left:35px;">
+                <label for="adcssoftwarever" class="form-label"><b>ADCS软件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="adcssoftwarever" name="adcssoftwarever"
+                       value="{{ adcssoftwarever }}" placeholder="请输入...">
+            </div>
+            -->
+            <div class="mb-3" style="float:left;padding-top:10px;">
+                <label for="adcstype" class="form-label"><b>ADCS类型</b></label>
+                <select class="form-select" style="width:176px;" id="adcstype" name="adcstype">
+                    <option value="1">ADCS1</option>
+                    <option value="2">ADCS2</option>
+                    <option value="3">ADCS-MDC</option>
+                    <option value="4">ADCS</option>
+                </select>
+            </div>
+            <!--固定值，暂不展示
+            <div style="float:left;padding-top:10px;padding-left:35px;">
+                <label for="adcspartnumber" class="form-label"><b>ADCS零件号</b></label>
+                <input class="form-control" style="width:176px;" id="adcspartnumber" name="adcspartnumber"
+                       value="{{ adcspartnumber }}" placeholder="请输入...">
+            </div>
+            -->
+            <div style="float:left;padding-top:10px;padding-left:35px;">
+                <label for="cgw-sn" class="form-label"><b>CGW-SN</b></label>
+                <input class="form-control" style="width:176px;" id="cgw-sn" name="cgw-sn"
+                       value="{{ cgw_sn }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="engine" class="form-label"><b>电动机号</b></label>
+                <input class="form-control" style="width:176px;" id="engine" name="engine"
+                       value="{{ engine }}" placeholder="请输入...">
+            </div>
+            <!--固定值，暂不展示
+            <div class="mb-3" style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="powertype" class="form-label"><b>车辆类型</b></label>
+                <select class="form-select" style="width:176px;" id="powertype" name="powertype">
+                    <option value="1">两驱纯电</option>
+                    <option value="2">四驱纯电</option>
+                    <option value="3">增程</option>
+                </select>
+            </div>
+            -->
+            <div class="mb-3" style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="salescountry" class="form-label"><b>国家地区</b></label>
+                <select class="form-select" style="width:176px;" id="salescountry" name="salescountry">
+                    <option value="DE">德国</option>
+                    <option value="SG">新加坡</option>
+                </select>
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <div style="float:left;padding-top:10px;">
+                <label for="hu-sn" class="form-label"><b>HU-SN</b></label>
+                <input class="form-control" style="width:176px;" id="hu-sn" name="hu-sn"
+                       value="{{ hu_sn }}" placeholder="请输入...">
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <div style="float:right;padding-top:73px;">
+                <button type="submit" class="btn btn-outline-success" onclick="alert('数据已同步，可查看调用记录')">
+                    同步
+                </button>
+            </div>
+            <div style="clear: both;"></div>
+        </form>
+    </div>
+    <div style="position:absolute;bottom:0;border:1px solid rgb(224, 222, 222);border-left:none;border-right:none;width:850px;height:180px;overflow-y: scroll;">
+        <!--overflow-y: scroll;文本超出范围,启用垂直滚动条-->
+        <div style="padding:10px">
+            <p><b>调用记录</b></p>
+            {{ result_data }}
+        </div>
+    </div>
+</div>
+{% endblock %}

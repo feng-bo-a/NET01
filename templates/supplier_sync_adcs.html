@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block from %}
+<!--表单界面-->
+<div style="border:1px solid rgb(224, 222, 222);width:850px;height:350px;border-left: none;border-right: none;border-bottom:none;">
+    <div style="position:relative;padding:10px;">
+        <form action="http://127.0.0.1:5000/submit/adcs" method="post" style="font-size:12px;">
+            <div style="float:left;">
+                <label for="adcs-sn" class="form-label"><b>ADCS序列号</b></label>
+                <input class="form-control" style="width:176px;" id="adcs-sn" name="adcs-sn" value="{{ adcs_sn }}"
+                       placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="adcs-hardwarever" class="form-label"><b>硬件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="adcs-hardwarever" name="adcs-hardwarever"
+                       value="{{ adcs_hardwarever }}"
+                       placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="adcs-softwarever" class="form-label"><b>软件版本号</b></label>
+                <input class="form-control" style="width:176px;" id="adcs-softwarever" name="adcs-softwarever"
+                       value="{{ adcs_softwarever }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="suppliercode-num" class="form-label"><b>供应商编码</b></label>
+                <input class="form-control" style="width:176px;" id="suppliercode-num" name="suppliercode-num"
+                       value="{{ suppliercode_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;">
+                <label for="suppliername-num" class="form-label"><b>供应商名称</b></label>
+                <input class="form-control" style="width:176px;" id="suppliername-num" name="suppliername-num"
+                       value="{{ suppliername_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="model-num" class="form-label"><b>型号</b></label>
+                <input class="form-control" style="width:176px;" id="model-num" name="model-num"
+                       value="{{ model_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="adcstype" class="form-label"><b>ADCS类型</b></label>
+                <input class="form-control" style="width:176px;" id="adcstype" name="adcstype"
+                       value="{{ adcstype }}" placeholder="请输入...">
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <div style="float:right;padding-top:73px;">
+                <button type="submit" class="btn btn-outline-success" onclick="alert('数据已同步，可查看调用记录')">
+                    同步
+                </button>
+            </div>
+            <div style="clear: both;"></div>
+        </form>
+    </div>
+    <div style="position:absolute;bottom:0;border:1px solid rgb(224, 222, 222);border-left:none;border-right:none;width:850px;height:180px;">
+        <div style="padding:10px">
+            <div style="float:left;width:25px;height:160px;">
+                <b>同步记录</b>
+            </div>
+            <!--overflow-y: scroll;文本超出范围,启用垂直滚动条-->
+            <div style="float:left;width:800px;height:160px;border:1px solid rgb(224, 222, 222);overflow-y: scroll;">
+                {{ result_data }}
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

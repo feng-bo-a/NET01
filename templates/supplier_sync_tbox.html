@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block from %}
+<!--表单界面-->
+<div style="border:1px solid rgb(224, 222, 222);width:850px;height:350px;border-left: none;border-right: none;border-bottom:none;">
+    <div style="position:relative;padding:10px;">
+        <form action="http://127.0.0.1:5000/supplier/sync/tbox" method="post" style="font-size:12px;">
+            <div style="float:left;">
+                <label for="tbox-sn" class="form-label"><b>TBOX序列号</b></label>
+                <input class="form-control" style="width:176px;" id="tbox-sn" name="tbox-sn" value="{{ tbox_sn }}"
+                       placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="sim-num" class="form-label"><b>SIM卡号</b></label>
+                <input class="form-control" style="width:176px;" id="sim-num" name="sim-num" value="{{ sim_num }}"
+                       placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="bluetooth-num" class="form-label"><b>蓝牙</b></label>
+                <input class="form-control" style="width:176px;" id="bluetooth-num" name="bluetooth-num"
+                       value="{{ bluetooth_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;">
+                <label for="supplierCode-num" class="form-label"><b>供应商编码</b></label>
+                <input class="form-control" style="width:176px;" id="supplierCode-num" name="supplierCode-num"
+                       value="{{ supplierCode_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;">
+                <label for="iccid-num" class="form-label"><b>ICCID</b></label>
+                <input class="form-control" style="width:176px;" id="iccid-num" name="iccid-num"
+                       value="{{ iccid_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="imsi-num" class="form-label"><b>IMSI</b></label>
+                <input class="form-control" style="width:176px;" id="imsi-num" name="imsi-num"
+                       value="{{ imsi_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="imei-num" class="form-label"><b>IMEI</b></label>
+                <input class="form-control" style="width:176px;" id="imei-num" name="imei-num"
+                       value="{{ imei_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-left:35px;padding-top:10px;">
+                <label for="SupplierName-num" class="form-label"><b>供应商名称</b></label>
+                <input class="form-control" style="width:176px;" id="SupplierName-num" name="SupplierName-num"
+                       value="{{ SupplierName_num }}" placeholder="请输入...">
+            </div>
+            <div style="float:left;padding-top:10px;">
+                <label for="tboxModel-num" class="form-label"><b>型号</b></label>
+                <input class="form-control" style="width:176px;" id="tboxModel-num" name="tboxModel-num"
+                       value="{{ tboxModel_num }}" placeholder="请输入...">
+            </div>
+            <!--设置clear: both;避免父级元素塌陷，元素之间排序混乱-->
+            <div style="clear: both;"></div>
+            <div style="float:right;padding-top:0px;">
+                <button type="submit" class="btn btn-outline-success" onclick="alert('数据已同步，可查看调用记录')">
+                    同步
+                </button>
+            </div>
+            <div style="clear: both;"></div>
+        </form>
+    </div>
+    <div style="position:absolute;bottom:0;border:1px solid rgb(224, 222, 222);border-left:none;border-right:none;width:850px;height:180px;">
+        <div style="padding:10px">
+            <div style="float:left;width:25px;height:160px;">
+                <b>同步记录</b>
+            </div>
+            <!--overflow-y: scroll;文本超出范围,启用垂直滚动条-->
+            <div style="float:left;width:800px;height:160px;border:1px solid rgb(224, 222, 222);overflow-y: scroll;">{{
+                result_data }}
+            </div>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

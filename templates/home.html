@@ -62,9 +62,9 @@
     </style>
 </head>
 <body class="text-center">
-<!--手动输入各个环境的token值，用于后续接口操作时调用-->
 <main class="form-signin w-100 m-auto">
-    <form action="http://127.0.0.1:5000/submit" method="post">
+    <!--手动输入各个环境的token值，用于后续接口操作时调用-->
+    <form action="http://127.0.0.1:5000/home" method="post">
         <img class="mb-4" src="../static/img/bootstrap-logo.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please enter the token</h1>
         <div class="form-floating">
@@ -80,9 +80,8 @@
         <p><strong>错误:</strong> {{ error }}</p>
         {% endif %}
         <br>
-        <!--操作保存后，跳转到接口管理主页面-->
         <button class="w-100 btn btn-lg btn-primary" type="submit">保 存</button>
-        <p class="mt-5 mb-3 text-muted">© 2024–04-08</p>
+        <p class="mt-5 mb-3 text-muted">© 2024–04-18</p>
     </form>
 </main>
 </body>
